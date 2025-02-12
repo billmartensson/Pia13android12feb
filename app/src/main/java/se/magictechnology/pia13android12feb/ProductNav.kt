@@ -8,8 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
 
-@Serializable
-data class Fruit(val fruitname: String)
+
 
 @Composable
 fun ProductNav() {
@@ -31,7 +30,9 @@ fun ProductNav() {
         }
 
         composable("about") {
-            AboutScreen()
+            AboutScreen(letsclose = {
+                navController.popBackStack()
+            })
         }
     }
 
